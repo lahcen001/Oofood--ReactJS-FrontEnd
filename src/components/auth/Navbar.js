@@ -59,14 +59,14 @@ componentDidUpdate(){
             <ul className="navbar-nav mx-2">
                 <li className="nav-item">
                     <Link to="/login" className="nav-link">
-                      <h5 className="text-white"><RiLoginCircleLine/> Login</h5> 
+                      <h5 className="text-white"><RiLoginCircleLine/> Connexion</h5> 
                     </Link>
                     
                     
                 </li>
                 <li className="nav-item mx-2">
                     <Link to="/register" className="nav-link">
-                       <h5 className="text-white" ><FaRegistered/> Register</h5>
+                       <h5 className="text-white" ><FaRegistered/> Inscription</h5>
                     </Link>
                     
                 </li>

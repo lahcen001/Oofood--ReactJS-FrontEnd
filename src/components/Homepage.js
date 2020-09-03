@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import Navbar from './auth/Navbar';
 import Footer from './Footer';
 import Caresoul from './Caresoul';
+import { GiFoodTruck } from 'react-icons/gi';
+import { RiLoginCircleLine } from 'react-icons/ri';
+import { FaRegistered } from 'react-icons/fa';
+import { AiFillDashboard } from 'react-icons/ai';
 
 export class Homepage extends Component {
   render() {
@@ -16,14 +20,14 @@ if (!localStorage.usertoken){
     
       
                <div> <Link to="/commander" className="btn btn-secondary btn-lg  my-2 shadow">
-                            <h5>Commander</h5> 
+                            <h5 className="font"><GiFoodTruck/> Commander</h5> 
                           </Link></div>
                 <div className="mx-4"> <Link to="/login" className="btn btn-danger btn-lg  my-2 shadow">
-                            <h5> Login</h5> 
+                            <h5 className="font"><RiLoginCircleLine/> Connexion</h5> 
                           </Link></div>
                          
                           <div> <Link to="/register" className="btn btn-danger btn-lg  my-2 shadow">
-                            <h5> Register</h5> 
+                            <h5 className="font"><FaRegistered/> Inscription</h5> 
                           </Link></div>
                    
       
@@ -38,10 +42,10 @@ if (!localStorage.usertoken){
     
       
                <div> <Link to="/commander" className="btn btn-secondary btn-lg  my-2 shadow">
-                            <h5>Commander</h5> 
+               <h5 className="font"><GiFoodTruck/> Commander</h5> 
                           </Link></div>
                 <div className="mx-4"> <Link to="/profile" className="btn btn-danger btn-lg  my-2 shadow">
-                            <h5> Dashboard</h5> 
+                            <h5><AiFillDashboard/> Dashboard</h5> 
                           </Link></div>
                          
                </div>
@@ -103,16 +107,18 @@ if (!localStorage.usertoken){
   </div>
 </div>
 
-<div className="jumbotron jumbotron-fluid bg-dark mb-0 mt-3">
+<div className="jumbotron jumbotron-fluid bg-white mb-0 mt-3">
         <div className="jumbotron-background">
-          <img src="https://images.unsplash.com/photo-1505826759037-406b40feb4cd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=paula-vermeulen-URjZkhqsuBk-unsplash.jpg" className="w-100" />
+          <img src="https://pixabay.com/get/54e7d3454e55ad14f6da8c7dda35367b1c36dfe65159794f_1280.jpg" className="w-100" />
 
         </div>
         <div className="container text-white">
-          
-          <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <hr className="my-4" />
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <h3 className="font mb-4">
+Nous sommes #ToujoursLaPourVousLivrer
+</h3>
+        
+          <hr className="my-4 text-white" />
+          <p className=" text-white font h5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     
 
     {message}

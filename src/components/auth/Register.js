@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import '../css/font.css'
 import Footer from '../Footer';
 import logo  from '../img/logo.png'
+import { FaRegistered } from 'react-icons/fa';
 
 class Register extends Component {
     constructor(){
@@ -131,7 +132,7 @@ onChange={this.onChange}
   />
   
   <button className="btn btn-lg btn-danger btn-block my-2" type="submit">
-  Register
+  <FaRegistered/> S'inscrire
   </button>
  
  

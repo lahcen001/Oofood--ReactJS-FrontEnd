@@ -14,7 +14,8 @@ export class Slide extends Component {
     <div className="container">
    
     <div  className="display-3 mb-1">
-    <img src={logo} alt=""  className="w-25"/>
+  
+    <img src={logo} alt="" width="40px" className="w-25"/>
      <h1 className="display-3 mb-1 text-white  font" > BestMenu</h1>
      </div>
 
@@ -29,9 +30,7 @@ export class Slide extends Component {
 				<b>TANGER</b>
 			</span>
 		</h1> */}
-
-
-
+ 
       <h4 className="lead">Order food online in  <span>CASABLANCA & TANGER</span></h4>
       
     </div>

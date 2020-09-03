@@ -6,6 +6,8 @@ import '../css/font.css'
 
 import Footer from '../Footer';
 import logo  from '../img/logo.png'
+import { RiLoginCircleLine } from 'react-icons/ri';
+import { FaRegistered } from 'react-icons/fa';
 
 class Login extends Component {
     constructor(){
@@ -154,10 +156,10 @@ render(){
   />
 
   <button className="btn btn-lg btn-primary btn-block my-2" type="submit">
-    Sign in
+  <RiLoginCircleLine/> Connexion
   </button>
   <Link to="/register" className="btn btn-lg btn-danger btn-block">
-           Register
+  <FaRegistered/> Inscription
   </Link>
  
 </form>

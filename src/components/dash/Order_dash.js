@@ -287,11 +287,11 @@ componentDidUpdate(){
     <td>
 
 {items.is_added==1 ? (
-<span class="badge badge-pill badge-success"> Accepté</span>         
+<span class="badge badge-pill badge-success"> commande acceptée</span>         
         ):(( items.accept==true  && items.is_added==0  ?
           <span class="badge badge-pill badge-danger">Commande Annulé </span> :
           
-          <button type="button" onClick={() => this.toggleCart(items)}  className="btn btn-dark">  En attente</button> 
+          <button type="button" onClick={() => this.toggleCart(items)}  className="btn btn-dark btn-block">  Accepter</button> 
         )
 
 )}
@@ -300,7 +300,7 @@ componentDidUpdate(){
 
 
 <td>
-    <button type="button" onClick={() => this.deleteOrder(items.id_order)}  className="btn btn-danger"><RiDeleteBin5Line/></button>
+    <button type="button" onClick={() => this.deleteOrder(items.id_order)}  className="btn btn-danger "><RiDeleteBin5Line/></button>
 </td>
 
   </tr>

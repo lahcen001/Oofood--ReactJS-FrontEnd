@@ -115,7 +115,7 @@ data(item){
 
 <div className="row">
 <div className="col-md-12">
-      <h5 className="text-muted">{this.props.item.price} MAD</h5>
+      <h4 className="text-muted"> <span className="badge badge-primary">  {this.props.item.price} MAD </span>  </h4>
 
 
       </div>
@@ -126,7 +126,7 @@ data(item){
 
 <button type="submit" onClick={() => this.toggleCart(this.props.item )  }    className="btn  btn-danger "><ImMinus/></button>       
      ):(
-       <button type="submit" onClick={() => this.toggleCart(this.props.item )  }    className="btn btn-dark"><BiPlusMedical/></button>
+       <button type="submit" onClick={() => this.toggleCart(this.props.item )  }    className="btn btn-dark  "><BiPlusMedical/></button>
      )}
 
 </div>
@@ -139,7 +139,7 @@ data(item){
 
       
 
-<select  onChange={(e,item)=>this.onChange(e,this.props.item) }  className="custom-select">
+<select  onChange={(e,item)=>this.onChange(e,this.props.item) }  className="custom-select ">
 
 
 <option value="1">1</option>

@@ -212,7 +212,7 @@ console.log(this.props)
           <h6 className="my-0">{item.name}</h6>
          
           <div>
-          <span className="text-muted mx-2 ">{item.cont} * {item.price} = {(item.price)*(item.cont)} MAD</span>
+          <span className="text-muted mx-2 "> {(item.price)*(item.cont)} MAD</span>
 
 <button type="button" onClick={() => this.deleteOrder(item.id)}  className="btn btn-dark"><h5>-</h5></button>
           </div>

@@ -223,7 +223,7 @@ toggleCart = (item) => {
      
       <div className="table bg-white rounded  p-3 m-3 shadow">
 
-
+<table>
 
 
   
@@ -309,7 +309,7 @@ toggleCart = (item) => {
 
             </tbody>
             
-             
+            </table>
            
           </div>
 
