@@ -75,17 +75,19 @@ console.log(image1 )
                 </div>
  </Carousel>
 
-  <Link to='/commander'><div className="btn btn-primary btn-lg btn-block my-2" type="button"> Retour</div></Link>
+  {/* <Link to='/commander'><div className="btn btn-primary btn-lg btn-block my-2" type="button"> Retour</div></Link> */}
 
 </div>
 
-<div className="col-lg-4  col-md-12  col-sm-12 ">
-    <h1> {this.state.item.name}</h1>
-<h2> Prix :{this.state.item.price} MAD</h2>
+<div className="col-lg-4  col-md-12  col-sm-12 shadow-sm rounded p-3">
+    <h1 className="mb-2 font"> {this.state.item.name}</h1>
+
+   
+<h2>  <span class="badge badge-success">Prix :{this.state.item.price} MAD</span></h2>
 <br/>
 <br/>
 <br/>
-<h3>DESCRIPTION</h3>
+<h3 className="font">DESCRIPTION</h3>
 <p>
 {this.state.item.description1}
 </p>
@@ -94,22 +96,28 @@ console.log(image1 )
 {this.state.item.description2}
 </p>
 <br/>
-<h3>INGRÉDIENTS</h3>
+<h3 className="font">INGRÉDIENTS</h3>
 <p>
 {this.state.item.description3}
 </p>
 <br/>
 </div>
-
-</div>
-
-<div className="bg-white rounded shadow p-5 mb-3">
+<div className="   col-md-12">
 <Disqus.DiscussionEmbed
           shortname={disqusShortname}
           config={disqusConfig}
         />
-        </div>
+   </div>
 </div>
+
+
+
+
+
+
+</div>
+
+
 
 </div>
         )

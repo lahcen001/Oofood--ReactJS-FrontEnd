@@ -197,7 +197,8 @@ componentDidUpdate(){
       
 
       <div className="table bg-white rounded shadow p-3 m-5 ">
-        <table>
+      <h4 className="text-center m-2">Commandes Annulée</h4>
+<table className="text-center mt-2 rounded">
             <thead>
               <tr>
            
