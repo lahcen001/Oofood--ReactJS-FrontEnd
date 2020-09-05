@@ -52,11 +52,6 @@ this.fetcher();
 fetcher = () => {
 
 
-// axios.get('http://admin.lahcen-elhanchir.com/api/plats')
-//     .then(data => this.setState({ pizzas: data }));
-
-
-
 
 axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
   localStorage.setItem("plat", res.data)
@@ -65,21 +60,20 @@ axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
 
 }
 
-// add to cart
-// onAddToCart = (item) => {
-//     fetch('http://admin.lahcen-elhanchir.com/api/add/' + item.id, {
-//         method: 'PUT',
-//         body: JSON.stringify(item),
-//         headers : { 
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json'
-//         }
-//     });
+platcat=(item)=>{
 
-
-//     this.fetcher();
-// }
-
+  axios.get(`http://admin.lahcen-elhanchir.com/api/platscategorie/${item}`).then(res=>{
+    this.setState({
+      pizzas:res.data
+        
+    })
+    console.log('lahcen',res.data)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+  }
+  
 
 
 onAddToCart = (item) => {
@@ -98,6 +92,8 @@ onRemoveFromCart = (item) => {
     console.log(res)
   });
   console.log('lahcen')
+
+
   this.fetcher();
   this.fetcher();
 }
@@ -121,19 +117,6 @@ onRemoveFromCart = (item) => {
 
 // }
 
-platcat=(item)=>{
-
-axios.get(`http://admin.lahcen-elhanchir.com/api/platscategorie/${item}`).then(res=>{
-  this.setState({
-    pizzas:res.data
-      
-  })
-  console.log('lahcen',res.data)
-  })
-  .catch(err=>{
-      console.log(err)
-  })
-}
 
 
 

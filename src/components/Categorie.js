@@ -9,7 +9,7 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import {ImMinus } from 'react-icons/im';
 import { BiPlusMedical } from 'react-icons/bi';
 
-class Item extends Component {
+class Categorie extends Component {
 
   
 
@@ -17,7 +17,7 @@ class Item extends Component {
     super(props);
     this.state = {cont: ''};
 
-
+  
   }
 
 
@@ -66,13 +66,19 @@ data(item){
     toggleCart = (item) => {
   
 
+      
+
+
+
     console.log(item)
         if (item.is_added==1)
-       this.props.onRemoveFromCart(item);        
-       if (item.is_added==0)
-      this.props.onAddToCart(item);
+             this.props.onRemoveFromCart(item);        
+            if (item.is_added==0)
+            this.props.onAddToCart(item);
 
 
+
+      
      
     }
 
@@ -113,21 +119,21 @@ data(item){
 
 
       </div>
-      <div className="col-md-2  justify-content-center">
+      <div className="col-md-2 ">
 
       {this.props.item.is_added==1  ? (
 
 
-<button type="submit" onClick={() => this.toggleCart(this.props.item )  }    className="btn  btn-danger "><ImMinus/></button>       
+<button type="submit" onClick={   () => this.toggleCart(this.props.item )   }    className="btn  btn-danger "><ImMinus/></button>       
      ):(
-       <button type="submit" onClick={() => this.toggleCart(this.props.item )  }    className="btn btn-dark  "><BiPlusMedical/></button>
+       <button type="submit" onClick={   () => this.toggleCart(this.props.item )   }    className="btn btn-dark  "><BiPlusMedical/></button>
      )}
 
 </div>
 
 
 
-<div className="col-md-4  col-sm-4 justify-content-center m-0">
+<div className="col-md-4 justify-content-center">
 
 <form className="needs-validation"  onSubmit={this.onSubmit}>
 
@@ -169,4 +175,4 @@ data(item){
     }
 }
 
-export default Item;
+export default Categorie;

@@ -6,6 +6,7 @@ import { Link, Redirect } from 'react-router-dom';
 import {getdashorder} from './Functions_dash';
 import { RiDeleteBin5Line} from 'react-icons/ri';
 import { AiOutlineUnorderedList } from 'react-icons/ai';
+import ReactPaginate from 'react-paginate';
 export class Clientinfo extends Component {
  
 
@@ -18,11 +19,43 @@ export class Clientinfo extends Component {
             ville:'',
             adresse:'',
             phone:'',
-            loading:false
+            loading:false,
+            offset: 0,
+            tableData: [],
+            orgtableData: [],
+            perPage: 5,
+            currentPage: 0
         }
     }
    
     
+
+    handlePageClick = (e) => {
+      const selectedPage = e.selected;
+      const offset = selectedPage * this.state.perPage;
+
+      this.setState({
+          currentPage: selectedPage,
+          offset: offset
+      }, () => {
+          this.loadMoreData()
+      });
+
+  };
+
+
+  loadMoreData() {
+		const data = this.state.orgtableData;
+		
+		const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+		this.setState({
+			pageCount: Math.ceil(data.length / this.state.perPage),
+			tableData:slice
+		})
+	
+    }
+
+
 
     deleteOrder = (id)=>{
 
@@ -35,25 +68,10 @@ export class Clientinfo extends Component {
 
 
    
- getdashorder().then(res=>{
- 
-  this.setState({
-  index:res
-  })
-  console.log(this.state.index)
-
-  
-})
+   this.getData1();
 
    
-getdashorder().then(res=>{
-  this.setState({
-  index:res
-  })
-  console.log(this.state.index)
 
-  
-})
 
     }
 
@@ -80,24 +98,9 @@ toggleCart = (item) => {
 
   
 
-  getdashorder().then(res=>{
-    this.setState({
-    index:res
-    })
-    console.log(this.state.index)
-
-    
- })
 
 
- getdashorder().then(res=>{
-  this.setState({
-  index:res
-  })
-  console.log(this.state.index)
-
-  
-})
+ this.getData1();
 
  console.log(item.id)
 
@@ -118,18 +121,7 @@ toggleCart = (item) => {
   });
   
 
-  getdashorder().then(res=>{
-    this.setState({
-    index:res
-    })
-    console.log(this.state.index)
- })
- getdashorder().then(res=>{
-  this.setState({
-  index:res
-  })
-  console.log(this.state.index)
-})
+  this.getData1();
 
  console.log(item.id)
 
@@ -147,12 +139,7 @@ toggleCart = (item) => {
     
     componentDidMount(){
    const id=  this.props.match.params.id;
-   getdashorder().then(res=>{
-    this.setState({
-    index:res
-    })
-    console.log(this.state.index)
- })
+   this.getData1();
         
    
         axios.get(`http://admin.lahcen-elhanchir.com/api/user/${id}`).then(res=>{
@@ -178,16 +165,38 @@ toggleCart = (item) => {
     
       }
   
+
+
+
+componentDidUpdate(){
+  this.getData1();
+}
+
+
+getData1=()=> {
+  
+  getdashorder().then(res=>{
+          var data = res.filter(p => p.id== this.props.match.params.id);
+  
+          var slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+          
+
+          this.setState({
+              pageCount: Math.ceil(data.length / this.state.perPage),
+              orgtableData :res,
+              tableData:slice,
+              loading:true
+       
+      });
+    });
+}
+
+
+
     
   render() {
 
-    const client= this.state.index.filter(p => p.id== this.props.match.params.id);
-
-
-
     return (
-
-      
 
 <>
 
@@ -209,19 +218,17 @@ toggleCart = (item) => {
       
 
      
-
-
-
-
-
       <>
-
-
 
 
 
      
       <div className="table bg-white rounded  p-3 m-3 shadow">
+
+      <h4 className="text-center m-2"><a type="button" id="sidebarCollapse" class=" mr-2">
+                        
+                        <AiOutlineUnorderedList/>
+      </a> Commandes de {this.state.name}</h4>
 
 <table>
 
@@ -232,10 +239,7 @@ toggleCart = (item) => {
            
              
                 <th>
-                  <button type="button" id="sidebarCollapse" class="btn btn-info mr-1">
-                        
-                        <AiOutlineUnorderedList/>
-            </button>
+                 
              Commande </th>
                 <th>Quantité</th>
                 <th>Prix</th>
@@ -252,7 +256,7 @@ toggleCart = (item) => {
             </thead>
          
             <tbody>
-            {(this.state.loading) && (
+            {!(this.state.loading) && (
               
  
               <tr>
@@ -268,7 +272,7 @@ toggleCart = (item) => {
               )}
 
 
-{this.state.index.map((items,index) => (
+{this.state.tableData.map((items,index) => (
               <tr key={index}>
              
             
@@ -310,7 +314,33 @@ toggleCart = (item) => {
             </tbody>
             
             </table>
+
+            {(this.state.loading) && (
+              
+ 
+              <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={this.state.pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={this.handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}/>
+              
+              )}
+
+
+
            
+
+           
+
+
+
           </div>
 
 
@@ -331,7 +361,7 @@ toggleCart = (item) => {
 </tr>
 <tr>
 <td><h6  className="text-success">Telephone</h6> </td>
-<td><h6> <span class="badge badge-warning"> {this.state.phone} </span></h6> </td>
+<td><h4> <span class="badge badge-warning "> {this.state.phone} </span></h4> </td>
 </tr>
 <tr>
 <td><h6  className="text-success">Ville </h6> </td>

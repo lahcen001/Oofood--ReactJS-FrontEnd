@@ -42,7 +42,7 @@ class Cart extends Component {
 
      axios.put(`http://admin.lahcen-elhanchir.com/api/remove/${id}`)
   .then((res)=>{
-    console.log(res)
+    console.log("delete",res)
   });
   
 
@@ -183,7 +183,7 @@ console.log(this.props)
 
 <div>
 
-<Navbar pizzas={this.props.cartPizzas} />
+<Navbar pizzas={this.props.cartPizzas}   delete={this.deleteOrder()} />
 
 {/* <Slide/> */}
 
