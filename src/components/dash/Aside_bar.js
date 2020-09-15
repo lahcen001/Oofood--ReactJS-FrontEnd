@@ -43,9 +43,6 @@ getdata(){
 
 
 
-componentDidUpdate(){
-  this.getdata()
-}
 
 
   
@@ -65,7 +62,7 @@ logOut(e){
     this.state.index.forEach(element => {
        
     
-         num += parseFloat(element.cont.length);
+         num += 1;
      });
 
    
@@ -77,7 +74,7 @@ logOut(e){
     attente.forEach(element => {
        
       // element.is_added =0;
-      att += parseFloat(element.cont.length);
+      att += 1;
   });
 
 
@@ -89,7 +86,7 @@ logOut(e){
   accepted.forEach(element => {
        
     // element.is_added =0;
-    acc += parseFloat(element.cont.length);
+    acc += 1;
 });
 
 
@@ -99,7 +96,7 @@ const annule = this.state.index.filter(p =>  p.accept==1 && p.is_added==0 );
 annule.forEach(element => {
        
   // element.is_added =0;
-  ann += parseFloat(element.cont.length);
+  ann +=1;
 });
 
 let conf = 0;
@@ -108,7 +105,7 @@ const confirmer=  this.state.index.filter(p => p.exp);
 confirmer.forEach(element => {
        
   // element.is_added =0;
- conf += parseFloat(element.cont.length);
+ conf += 1;
 });
     ////////
 

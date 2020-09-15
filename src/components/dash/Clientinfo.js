@@ -80,7 +80,6 @@ export class Clientinfo extends Component {
 
  
 
-  
 
 toggleCart = (item) => {
 
@@ -167,11 +166,13 @@ toggleCart = (item) => {
   
 
 
-
-componentDidUpdate(){
-  this.getData1();
-}
-
+      // componentDidUpdate(prevState){
+      //   if (prevState.index !== this.state.index) {
+      //     console.log('updated');
+      //  // this.getData1();
+      //   }
+      // }
+      
 
 getData1=()=> {
   
@@ -248,7 +249,7 @@ getData1=()=> {
                 <th>Image</th>
                 <th>Statut</th>
                
-                <th>Supprimer</th>
+                {/* <th>Supprimer</th> */}
                 
              
              
@@ -290,22 +291,22 @@ getData1=()=> {
                 
                 <td>
         
-          {items.is_added==1 ? (
-            <span class="badge badge-pill badge-success"> Accepté</span>         
-                    ):(( items.accept==true  && items.is_added==0  ?
-                      <span class="badge badge-pill badge-danger">Commande Annulé </span>:
-                      <button type="button" onClick={() => this.toggleCart(items)}  className="btn btn-dark">  En attente</button> 
-                    
-                    )
+                {items.is_added==1 ? (
+<span class="badge badge-pill badge-success"> commande acceptée</span>         
+        ):(( items.accept==true  && items.is_added==0  ?
+          <span class="badge badge-pill badge-danger">Commande Annulé </span> :
+          
+          <button type="button" onClick={() => this.toggleCart(items)}  className="btn btn-dark btn-block">  Accepter</button> 
+        )
 
- )}
+)}
        
           </td>
           
          
-          <td>
+          {/* <td>
                 <button type="button" onClick={() => this.deleteOrder(items.id_order)}  className="btn btn-danger"><RiDeleteBin5Line/></button>
-          </td>
+          </td> */}
 
               </tr>
            )) } 
@@ -347,7 +348,7 @@ getData1=()=> {
 
 
           
-      <table className="table bg-white rounded shadow p-3 mr-5 mt-5  col-md-2">
+      <table className="table bg-white rounded shadow p-3 mr-2 mt-5  col-md-2">
 
 
 <tr>

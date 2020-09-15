@@ -3,14 +3,20 @@ import Slide from './Slide';
 import { Link } from 'react-router-dom';
 import Navbar from './auth/Navbar';
 import Footer from './Footer';
-import Caresoul from './Caresoul';
+
 import { GiFoodTruck } from 'react-icons/gi';
 import { RiLoginCircleLine } from 'react-icons/ri';
 import { FaRegistered } from 'react-icons/fa';
 import { AiFillDashboard } from 'react-icons/ai';
+import {pizza} from './img/pizza.jpg'
+import logo  from './img/logo.png'
 
 export class Homepage extends Component {
   render() {
+
+console.log(localStorage.plat)
+    
+
     let message
 if (!localStorage.usertoken){
 
@@ -45,7 +51,7 @@ if (!localStorage.usertoken){
                <h5 className="font"><GiFoodTruck/> Commander</h5> 
                           </Link></div>
                 <div className="mx-4"> <Link to="/profile" className="btn btn-danger btn-lg  my-2 shadow">
-                            <h5><AiFillDashboard/> Dashboard</h5> 
+                            <h5 className="font"><AiFillDashboard/> Dashboard</h5> 
                           </Link></div>
                          
                </div>
@@ -55,7 +61,7 @@ if (!localStorage.usertoken){
 
 
    const url = 'http://admin.lahcen-elhanchir.com/storage/';
-  console.log(this.props.pizzas[0])
+
     return (
 
 
@@ -109,7 +115,7 @@ if (!localStorage.usertoken){
 
 <div className="jumbotron jumbotron-fluid bg-white mb-0 mt-3">
         <div className="jumbotron-background">
-          <img src="https://pixabay.com/get/54e7d3454e55ad14f6da8c7dda35367b1c36dfe65159794f_1280.jpg" className="w-100" />
+          <img src="https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png" className="w-100" />
 
         </div>
         <div className="container text-white">

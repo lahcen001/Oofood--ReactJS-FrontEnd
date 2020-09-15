@@ -33,7 +33,7 @@ lingth(){
     accepted.forEach(element => {
          
       // element.is_added =0;
-      acc += parseFloat(element.cont.length);
+      acc += 1;
   });
 
   return acc;
@@ -135,7 +135,7 @@ componentDidUpdate(){
     
       <img src={logo} width="70"  alt=""/>
  
-      <span class=" mb-1 text-white text-bold font h2"> BestMenu</span>
+      <span class=" mb-1 text-white text-bold font h2"> Oofood</span>
     </a>
 
     <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>

@@ -112,7 +112,7 @@ componentDidUpdate(){
         {/* <a className="navbar-brand" href="#">Beta Fast Food</a> */}
         <img src={logo} alt=""/>
         
-        <h4 className="text-white font-weight-bold">  BestMenu</h4>
+        <h4 className="text-white font-weight-bold">  Oofood</h4>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

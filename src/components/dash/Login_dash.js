@@ -86,7 +86,7 @@ login(user).then(res=>{
 
     <div className="bg-white p-5 shadow-lg text-center rounded">
     <img className="card-img-top  mt-4 w-25 mx-auto" src={logo}  alt=""/>
-    <h2 className="mx-auto ml-3 font">  BestMenu</h2>
+    <h2 className="mx-auto ml-3 font">  Oofood</h2>
        <p className="mx-auto ml-4">  Admin Dashboard</p>
       <div className="card-body">
       <form className="form-signin" noValidate onSubmit={this.onSubmit} mx-auto>

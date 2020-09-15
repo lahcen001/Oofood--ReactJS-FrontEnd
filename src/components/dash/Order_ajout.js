@@ -130,9 +130,11 @@ toggleCart = (item) => {
 
 
 
-componentDidUpdate(){
-  this.getData1();
-}
+// componentDidUpdate(prevState){
+//   if (this.state.index !== prevState.index) {
+//   this.getData1();
+//   }
+// }
 
 getData1=()=> {
   

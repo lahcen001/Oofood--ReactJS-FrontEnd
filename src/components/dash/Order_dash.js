@@ -130,9 +130,9 @@ toggleCart = (item) => {
 
 
 
-componentDidUpdate(){
-  this.getData1();
-}
+// componentDidUpdate(){
+//   this.getData1();
+// }
 
 
 getData1=()=> {

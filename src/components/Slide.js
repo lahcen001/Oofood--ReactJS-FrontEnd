@@ -16,7 +16,7 @@ export class Slide extends Component {
     <div  className="display-3 mb-1">
   
     <img src={logo} alt="" width="40px" className="w-25"/>
-     <h1 className="display-3 mb-1 text-white  font" > BestMenu</h1>
+     <h1 className="display-3 mb-1 text-white  font" > Oofood</h1>
      </div>
 
 

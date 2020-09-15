@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 
 import Item from './Item';
@@ -61,15 +62,6 @@ class Home extends Component {
 <div className="">
 <div className="col-md-12  col-lg-12 col-sm-12 pt-5"  align="center">
 
-
-
-
-
-
-
-
-
- 
 
 <button type="button  " onClick={() => this.props.fetcher()}  className="btn  mx-2 "><h4 className="h3 font">Tous les plats</h4></button>
 

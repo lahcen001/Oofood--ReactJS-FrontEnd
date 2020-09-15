@@ -63,7 +63,7 @@ render(){
 
 <div class="bg-white p-5 shadow-lg text-center rounded" >
 <img className="card-img-top  mt-4 w-25 mx-auto" src={logo}  alt=""/>
-    <h2 className="mx-auto ml-3 font">  BestMenu</h2>
+    <h2 className="mx-auto ml-3 font">  Oofood</h2>
      
   <div class="card-body">
    

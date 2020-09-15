@@ -58,5 +58,3 @@ export const clientinfo = id =>{
         console.log(err)
     })
 }
-
-

@@ -1,6 +1,6 @@
 {
   "name": "mon-app",
-  "homepage": "http://bestmenu.lahcen-elhanchir.com",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

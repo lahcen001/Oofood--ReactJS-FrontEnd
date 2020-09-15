@@ -7,7 +7,7 @@ import Footer from './Footer';
 import Navbar from './auth/Navbar';
 
 import axios from 'axios'
-
+import { RadioGroup, RadioButton , ReversedRadioButton } from 'react-radio-buttons';
 class Cart extends Component {
  
   constructor(){
@@ -34,40 +34,31 @@ class Cart extends Component {
         this.onChange =  this.onChange.bind(this)
         this.onSubmit =  this.onSubmit.bind(this)
     }
-
+ getdata3(){
+  axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
+      
+  this.setState({ pizzas: res.data })
+    }) 
+   }
     deleteOrder = (id)=>{
-    
+    if(id){
      console.log(id)
       
 
      axios.put(`http://admin.lahcen-elhanchir.com/api/remove/${id}`)
   .then((res)=>{
-    console.log("delete",res)
-  });
-  
+    console.log(res)
+  })
+   this.getdata3();
+   this.getdata3();
+ }
+	}
 
-  axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
-      
-    this.setState({ pizzas: res.data })
-      }) 
-     console.log(this.state.date)
-
-
-
-   axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
-      
-      this.setState({ pizzas: res.data })
-        }) 
-      console.log(this.state.date)
-      }
-          
+ 
 
 componentDidMount(){
-  axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
-      
-  this.setState({ pizzas: res.data })
-    }) 
-   
+	
+	 this.getdata3();
 
 
     getProfile().then(res=>{
@@ -171,6 +162,7 @@ onSubmit(e){
         });
 
 console.log(this.props)
+
         return (
           
 
@@ -229,7 +221,7 @@ console.log(this.props)
     </div>
   <form className="col-md-4 order-md-1 shadow p-3 rounded bg-white"  onSubmit={this.onSubmit.bind(this)}>
 
-      <h4 className="mb-3">Billing address</h4>
+      <h4 className="mb-3">Adresse de Livraison</h4>
     
     <div className="row">
        
@@ -240,7 +232,7 @@ console.log(this.props)
         </div>
         <div className="mb-3">
           <label htmlFor="address2">
-           Phone 
+           Telephone
           </label>
           <input
             type="text"
@@ -249,7 +241,7 @@ console.log(this.props)
             onChange={this.onChange}
             name="phone"
          
-            placeholder="PHONE"
+            placeholder="Telephone"
           />
        
           <div className="invalid-feedback">
@@ -274,7 +266,7 @@ console.log(this.props)
          <label>
         <input type="radio" value="Casablanca" 
                       checked={this.state.selectedOption === 'Casablanca'} 
-                      onChange={this.handleOptionChange} />
+                      onChange={this.handleOptionChange} />{' '}
           Casablanca
       </label>
     </div>
@@ -282,7 +274,7 @@ console.log(this.props)
       <label>
         <input type="radio" value="Tanger" 
                       checked={this.state.selectedOption === 'Tanger'} 
-                      onChange={this.handleOptionChange}/>
+                      onChange={this.handleOptionChange}/>{' '}
           Tanger
       </label>
     </div>
@@ -314,5 +306,3 @@ console.log(this.props)
 }
 
 export default Cart;
-
-

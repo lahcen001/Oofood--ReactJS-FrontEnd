@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import {update} from './UserFunctions';
 import { Link } from 'react-router-dom';
 import { Button,Modal } from 'react-bootstrap'
+import ReactPaginate from 'react-paginate';
 
 class Profile extends Component {
 
@@ -22,6 +23,11 @@ constructor(props){
         data:[],
         showHide : false,
         loading:false,
+        offset: 0,
+        tableData: [],
+        orgtableData: [],
+        perPage: 4,
+        currentPage: 0
         
 
     }
@@ -30,44 +36,41 @@ constructor(props){
 
 }
 
+
+handlePageClick = (e) => {
+  const selectedPage = e.selected;
+  const offset = selectedPage * this.state.perPage;
+
+  this.setState({
+      currentPage: selectedPage,
+      offset: offset
+  }, () => {
+      this.loadMoreData()
+  });
+
+};
+
+
+loadMoreData() {
+const data = this.state.orgtableData;
+
+const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+this.setState({
+  pageCount: Math.ceil(data.length / this.state.perPage),
+  tableData:slice
+})
+
+}
+
+
+
+
+
 handleModalShowHide() {
     this.setState({ showHide: !this.state.showHide })
 }
 componentDidMount(){
-    getProfile().then(res=>{
-       console.log(this.state.id)
-
-
-        axios.get(`http://admin.lahcen-elhanchir.com/api/getprofile/${res.id}`).then(res=>{
-    
-            this.setState({
-                   data:res.data
-            })
-            console.log(this.state.data)
-           this.setState({
-             loading:true
-           })
-                })
-                .catch(err=>{
-                    console.log(err)
-                })
-            
-
-
-
-   this.setState({
-   id:res.id,     
-   name:res.name,
-   email:res.email,
-   ville:res.ville,
-adresse:res.adresse,
-phone:res.phone,
-
-   })
-
-    })
-    
-
+  this.getData1();
 }
 
 
@@ -84,42 +87,9 @@ acceptOrder = (itm)=>{
 
  ////////////////////////////////////////
  
- getProfile().then(res=>{
-    console.log(this.state.id)
-
-
-     axios.get(`http://admin.lahcen-elhanchir.com/api/getprofile/${res.id}`).then(res=>{
- 
-         this.setState({
-                data:res.data
-         })
-         console.log(this.state.data)
-             })
-             .catch(err=>{
-                 console.log(err)
-             })
-         
-
-
-
-this.setState({
-id:res.id,     
-name:res.name,
-email:res.email,
-ville:res.ville,
-adresse:res.adresse,
-phone:res.phone,
-
-})
-
- })
- ///////
-
+ this.getData1();
 
 }
- 
-
-
 deleteOrder = (id)=>{
     axios.delete(`http://admin.lahcen-elhanchir.com/api/destroy/${id}`).then(res=>{
  })
@@ -129,37 +99,7 @@ deleteOrder = (id)=>{
 
 
 
- 
- getProfile().then(res=>{
-    console.log(this.state.id)
-
-
-     axios.get(`http://admin.lahcen-elhanchir.com/api/getprofile/${res.id}`).then(res=>{
- 
-         this.setState({
-                data:res.data
-         })
-         console.log(this.state.data)
-             })
-             .catch(err=>{
-                 console.log(err)
-             })
-         
-
-
-
-this.setState({
-id:res.id,     
-name:res.name,
-email:res.email,
-ville:res.ville,
-adresse:res.adresse,
-phone:res.phone,
-
-
-})
-
- })
+ this.getData1();
 
 
   }
@@ -201,11 +141,58 @@ this.setState({
 
 
 }
-///////////
 
 
+getData1=()=> {
+  
+  var data;
+  getProfile().then(res=>{
+    console.log(this.state.id)
+
+  axios.get(`http://admin.lahcen-elhanchir.com/api/getprofile/${res.id}`).then(res=>{
+    
+          
+               data = res.data;
+           
+            console.log(this.state.data)
+           this.setState({
+             loading:true
+           })
+               
+                
+     // var data = res;
+  
+          var slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+          
+
+          this.setState({
+              pageCount: Math.ceil(data.length / this.state.perPage),
+              orgtableData :res.data,
+              tableData:slice,
+              loading:true
+       
+      });
+    })
+
+    this.setState({
+      id:res.id,     
+      name:res.name,
+      email:res.email,
+      ville:res.ville,
+   adresse:res.adresse,
+   phone:res.phone,
+  })
+  })
+    
+}
 
 render(){
+
+
+  
+
+
+
 
     let tot = 0;
     
@@ -363,45 +350,7 @@ return (
 </div>
 <div >
 <div className="row justify-content-center ">
-{/* <table className="table col-lg-3  col-md-12 col-sm-12  shadow mx-1 bg-white rounded">
-    
-<tbody>
 
-<tr className="bg-blue">
-<td><h5 className="text-success">Name</h5></td>
-<td><h5>{this.state.name}</h5></td>
-</tr>
-<tr>
-<td><h5 className="text-success">Email</h5></td>
-<td><h5>{this.state.email}</h5></td>
-</tr>
-<tr>
-<td><h5 className="text-success">Telephone </h5></td>
-<td><h5>{this.state.phone}</h5></td>
-</tr>
-<tr>
-<td><h5 className="text-success">Adresse </h5></td>
-<td><h5>{this.state.adresse}</h5></td>
-</tr>
-<tr>
-<td><h5 className="text-success">Ville </h5></td>
-<td><h5>{this.state.ville}</h5></td>
-</tr>
-
-<tr>
-<td><h5 className="text-success">total</h5></td>
-<td><h5>{tot} MAD</h5></td>
-</tr>
-
-  
-</tbody>
-
-
-
-
-
-
-</table> */}
 
 
 
@@ -445,7 +394,7 @@ return (
 
 
 
-{this.state.data.map((itm,index) => (
+{this.state.tableData.map((itm,index) => (
 
 
 
@@ -493,8 +442,24 @@ return (
 
 
 
+{(this.state.loading) && (
+  <ReactPaginate
+  className="mr-2"
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={this.state.pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={4}
+              onPageChange={this.handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}/>
 
+    )}
 </table>
+
 </div>
 </div>
 </div>
