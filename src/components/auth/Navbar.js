@@ -59,7 +59,7 @@ componentDidUpdate(){
     let acc = this.lingth()
 
         const loginRegLink = (
-            <ul className="navbar-nav mx-2">
+            <ul className="navbar-nav ">
                 <li className="nav-item">
                     <Link to="/login" className="nav-link">
                       <h5 className="text-white"><RiLoginCircleLine/> Connexion</h5> 
@@ -67,7 +67,7 @@ componentDidUpdate(){
                     
                     
                 </li>
-                <li className="nav-item mx-2">
+                <li className="nav-item">
                     <Link to="/register" className="nav-link">
                        <h5 className="text-white" ><FaRegistered/> Inscription</h5>
                     </Link>
@@ -78,15 +78,15 @@ componentDidUpdate(){
         )
 
         const userLink = (
-            <ul className="navbar-nav mx-2">
+            <ul className="navbar-nav ">
                 <li className="nav-item">
                     <Link to="/profile" className="nav-link">
-                     <h5 className="text-white"  > <AiFillDashboard/>  Dashboard</h5> 
+                     <h5 className="text-white"  > <AiFillDashboard/>Mes Commandes</h5> 
                     </Link>
                     
                 </li>
 
-                <li className="nav-item mx-2">
+                <li className="nav-item ">
                     <a href="/" onClick={this.logOut.bind(this)}   className="nav-link">
                    <h5 className="text-white"  ><AiOutlineLogout/> Logout</h5>
                     </a>
@@ -101,7 +101,7 @@ componentDidUpdate(){
         const loginRegLink1 = (
     
               
-        <Link to='/login'><div className="btn btn-secondary btn-lg btn-block my-2 shadow" type="button"><TiShoppingCart/>   {acc}</div></Link>
+        <Link to='/login'><div className="btn btn-secondary btn-lg btn-block  shadow" type="button"><TiShoppingCart/>   {acc}</div></Link>
                           
                     )
                    let userLink1
@@ -109,14 +109,14 @@ componentDidUpdate(){
          if(acc== 0){
                     userLink1 = (
                         
-          <Link to='/paniervide'><div className="btn btn-secondary btn-lg btn-block my-2 shadow" type="button"><TiShoppingCart/> {acc} </div></Link>
+          <Link to='/paniervide'><div className="btn btn-secondary btn-lg btn-block  shadow" type="button"><TiShoppingCart/> {acc} </div></Link>
                            
                     )
                 }
                 else {
                userLink1 = (
                         
-                        <Link to='/cart'><div className="btn btn-secondary btn-lg btn-block my-2 shadow" type="button"><TiShoppingCart/> {acc} </div></Link>
+                        <Link to='/cart'><div className="btn btn-secondary btn-lg btn-block  shadow" type="button"><TiShoppingCart/> {acc} </div></Link>
                                          
                                   )
                 }

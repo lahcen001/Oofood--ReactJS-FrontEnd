@@ -240,7 +240,6 @@ console.log(this.props)
             className="form-control"
             onChange={this.onChange}
             name="phone"
-         
             placeholder="Telephone"
           />
        
@@ -253,7 +252,7 @@ console.log(this.props)
           
          
              <div class="form-group">
-         <label for="exampleFormControlTextarea1">  Address</label>
+         <label for="exampleFormControlTextarea1">Address</label>
         <textarea  name="adresse"  onChange={this.onChange} class="form-control"  value={this.state.adresse}   id="exampleFormControlTextarea1" rows="3"/>
          </div>
 

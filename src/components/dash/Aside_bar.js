@@ -207,7 +207,7 @@ confirmer.forEach(element => {
     <nav id="sidebar">
     <div class="sidebar-header texte-center">
     <img class="ml-5"  src={logo} width="100"  alt=""/>
-        <h3 class=" text-center font ">BestMenu</h3>
+        <h3 class=" text-center font ">Oofood</h3>
     </div>
 
     <ul class=" text-center  list-unstyled components">
@@ -217,7 +217,7 @@ confirmer.forEach(element => {
     </ul>
     <ul class="list-unstyled CTAs">
                     <li><a onClick={this.logOut.bind(this)}  type="button"  className="download mt-2">
-       <AiOutlineLogout/>  Logout
+       <AiOutlineLogout/>  Déconnexion 
             </a></li>
                  
                 </ul>

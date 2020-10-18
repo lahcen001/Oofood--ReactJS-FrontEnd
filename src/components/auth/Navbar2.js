@@ -71,7 +71,7 @@ componentDidUpdate(){
             <ul className="navbar-nav mx-2">
                 <li className="nav-item">
                     <Link to="/profile" className="nav-link">
-                     <h5 className="text-white"  > <AiFillDashboard/>  Dashboard</h5> 
+                     <h5 className="text-white"  > <AiFillDashboard/>Mes Commandes</h5> 
                     </Link>
                     
                 </li>

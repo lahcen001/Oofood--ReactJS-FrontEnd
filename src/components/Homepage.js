@@ -51,7 +51,7 @@ if (!localStorage.usertoken){
                <h5 className="font"><GiFoodTruck/> Commander</h5> 
                           </Link></div>
                 <div className="mx-4"> <Link to="/profile" className="btn btn-danger btn-lg  my-2 shadow">
-                            <h5 className="font"><AiFillDashboard/> Dashboard</h5> 
+                            <h5 className="font"><AiFillDashboard/> Mes Commandes</h5> 
                           </Link></div>
                          
                </div>

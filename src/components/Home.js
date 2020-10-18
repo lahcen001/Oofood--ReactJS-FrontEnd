@@ -73,7 +73,7 @@ class Home extends Component {
        
          
              </div>
-<div className="col-md-2">
+<div className="col-lg-2  col-md-12 col-sm-12">
 
 
 </div>

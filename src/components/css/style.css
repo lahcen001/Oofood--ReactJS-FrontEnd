@@ -55,6 +55,7 @@ a:focus {
     min-width: 250px;
     max-width: 250px;
     min-height: 500px;
+    height: 43rem;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
@@ -320,4 +321,10 @@ and also iPads specifically.
 .pagination>li:last-child>a,
 .pagination>li:last-child>span {
     border-radius: unset
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

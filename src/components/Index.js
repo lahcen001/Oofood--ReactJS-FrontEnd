@@ -52,6 +52,11 @@ this.fetcher();
 fetcher = () => {
 
 
+// axios.get('http://admin.lahcen-elhanchir.com/api/plats')
+//     .then(data => this.setState({ pizzas: data }));
+
+
+
 
 axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
   localStorage.setItem("plat", res.data)
@@ -60,20 +65,21 @@ axios.get(`http://admin.lahcen-elhanchir.com/api/plats`).then(res=>{
 
 }
 
-platcat=(item)=>{
+// add to cart
+// onAddToCart = (item) => {
+//     fetch('http://admin.lahcen-elhanchir.com/api/add/' + item.id, {
+//         method: 'PUT',
+//         body: JSON.stringify(item),
+//         headers : { 
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
+//         }
+//     });
 
-  axios.get(`http://admin.lahcen-elhanchir.com/api/platscategorie/${item}`).then(res=>{
-    this.setState({
-      pizzas:res.data
-        
-    })
-    console.log('lahcen',res.data)
-    })
-    .catch(err=>{
-        console.log(err)
-    })
-  }
-  
+
+//     this.fetcher();
+// }
+
 
 
 onAddToCart = (item) => {
@@ -92,8 +98,6 @@ onRemoveFromCart = (item) => {
     console.log(res)
   });
   console.log('lahcen')
-
-
   this.fetcher();
   this.fetcher();
 }
@@ -117,6 +121,19 @@ onRemoveFromCart = (item) => {
 
 // }
 
+platcat=(item)=>{
+
+axios.get(`http://admin.lahcen-elhanchir.com/api/platscategorie/${item}`).then(res=>{
+  this.setState({
+    pizzas:res.data
+      
+  })
+  console.log('lahcen',res.data)
+  })
+  .catch(err=>{
+      console.log(err)
+  })
+}
 
 
 
@@ -126,7 +143,7 @@ onRemoveFromCart = (item) => {
   render() {
     return (
 
-<>
+<div >
 <Router>
 
   <Route  exact path="/" render={(props) =>
@@ -148,7 +165,7 @@ onRemoveFromCart = (item) => {
              />
  <Route exact path='/cart' render={(props) =>
                  <Cart {...props} cartPizzas={this.state.pizzas}/>
-             } />
+             }/>
         <Route exact path='/ordered' render={() =>
                  <Ordered 
                  onRemoveFromCart={this.onRemoveFromCart}
@@ -196,11 +213,11 @@ onRemoveFromCart = (item) => {
    
 </Router>
 
- </>
+ </div>
     )
   }
 }
 
 
 
-export default Index
+export default withRouter(Index)

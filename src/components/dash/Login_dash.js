@@ -91,7 +91,7 @@ login(user).then(res=>{
       <div className="card-body">
       <form className="form-signin" noValidate onSubmit={this.onSubmit} mx-auto>
       
-      <h1 className="h3  font-weight-normal"> Please sign in</h1>
+      <h1 className="h3  font-weight-normal"> Veuillez vous connecter</h1>
       {this.state.alert==401 ? (
 
 <div class="alert alert-danger" role="alert">

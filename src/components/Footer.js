@@ -12,10 +12,10 @@ import {AiFillFacebook } from 'react-icons/ai';
 export class Footer extends Component {
     render() {
         return (
-            <footer>
+            <footer className="footer">
             <div class="container">
               <div class="row">
-                <div class="col-md-4 footer-column">
+                <div class="col-lg-4 col-md-12 col-sm-12 footer-column">
                   <ul class="nav flex-column">
                     <li class="nav-item">
                       <span class="footer-title">Accueil</span>
@@ -32,7 +32,7 @@ export class Footer extends Component {
                     
                   </ul>
                 </div>
-                <div class="col-md-4 footer-column">
+                <div class="col-lg-4 col-md-12 col-sm-12 footer-column">
                  
 <h4 className="text-white">COORDONNÉES</h4><p className="text-white">100 Boulevard Zerktouni, Maârif ,
 20000  Casablanca</p>
@@ -54,7 +54,7 @@ export class Footer extends Component {
                     </li>
                   </ul>
                 </div>
-                <div class="col-md-4 footer-column">
+                <div class="col-lg-4 col-md-12 col-sm-12 footer-column">
                   <ul class="nav flex-column">
                     <li class="nav-item">
                       <span class="footer-title"> Contact & Support</span>
