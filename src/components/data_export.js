@@ -1,48 +1,47 @@
-import axios from 'axios';
-export const  reservfun = reservation =>{
-    console.log( reservation)
-    return axios.put(`http://admin.lahcen-elhanchir.com/api/updateuser/${localStorage.id}`, reservation, {
-   headers: {'Content-Type':'application/json'}
-    }).then(res=>{
-        console.log("lahcen")
+import axios from "axios";
+export const reservfun = (reservation) => {
+  console.log(reservation);
+  return axios
+    .put(
+      `https://oofood.herokuapp.com/api/updateuser/${localStorage.id}`,
+      reservation,
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    )
+    .then((res) => {
+      console.log("lahcen");
     })
-    .catch(err=>{
-        console.log(err)
-    })
-}
+    .catch((err) => {
+      console.log(err);
+    });
+};
 //////////////////////////////////////////////////////////////
-export const orderfun = order =>{
-    console.log(order)
-    return axios.post('http://admin.lahcen-elhanchir.com/api/order', order, {
-   headers: {'Content-Type':'application/json'}
-    }).then(res=>{
-        console.log(res)
+export const orderfun = (order) => {
+  console.log(order);
+  return axios
+    .post("https://oofood.herokuapp.com/api/order", order, {
+      headers: { "Content-Type": "application/json" },
     })
-    .catch(err=>{
-       return err.response
+    .then((res) => {
+      console.log(res);
     })
-}
-
+    .catch((err) => {
+      return err.response;
+    });
+};
 
 ///////////////////////////////////////////////////////////
 
-export const getcategorie = newUser =>{
-    
+export const getcategorie = (newUser) => {
+  console.log(localStorage.id);
 
-    console.log(localStorage.id)
-
-
-    return axios.get(`http://admin.lahcen-elhanchir.com/api/categorie`).then(res=>{
-      
-        return res.data
-    }) 
-    .catch(err=>{
-        console.log(err) 
+  return axios
+    .get(`https://oofood.herokuapp.com/api/categorie`)
+    .then((res) => {
+      return res.data;
     })
-
-
-
-
-    
-}
-
+    .catch((err) => {
+      console.log(err);
+    });
+};
